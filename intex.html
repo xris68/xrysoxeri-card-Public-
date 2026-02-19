@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XRYSO XERI</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f4f0fa;
+text-align:center;
+padding:20px;
+}
+
+.card{
+max-width:400px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:10px;
+font-size:16px;
+border:none;
+border-radius:10px;
+background:#6a2ca0;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#4d1f75;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>XRYSO XERI</h2>
+
+<img src="YOUR_CARD_IMAGE_URL_HERE">
+
+<button onclick="saveContact()">📇 Αποθήκευση επαφής</button>
+
+<button onclick="openMap()">📍 Άνοιγμα χάρτη</button>
+
+<button onclick="callPhone()">📞 Κλήση</button>
+
+</div>
+
+<script>
+
+function saveContact(){
+
+const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:XRYSO XERI
+ORG:XRYSO XERI
+TEL:2106899772
+ADR:;;Αγίου Γεωργίου 19, Χαλάνδρι;;;;
+END:VCARD`;
+
+const blob = new Blob([vcard], {type: "text/vcard"});
+const link = document.createElement("a");
+
+link.href = URL.createObjectURL(blob);
+link.download = "XRYSO_XERI.vcf";
+link.click();
+}
+
+function openMap(){
+
+window.open(
+"https://www.google.com/maps/search/?api=1&query=Αγίου+Γεωργίου+19,+Χαλάνδρι"
+);
+}
+
+function callPhone(){
+
+window.open("tel:2106899772");
+}
+
+</script>
+
+</body>
+</html>
