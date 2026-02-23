@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -11,81 +12,93 @@
 <meta property="og:site_name" content="XRYSO XERI">
 
 <style>
-
 body{
-font-family: Arial;
-background:#f4f0fa;
-text-align:center;
-padding:20px;
+  font-family: Arial;
+  background:#f4f0fa;
+  text-align:center;
+  padding:20px;
 }
 
 .card{
-max-width:400px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,0.2);
+  max-width:400px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(0,0,0,0.2);
 }
 
 img{
-width:100%;
-border-radius:10px;
+  width:100%;
+  border-radius:10px;
 }
 
 button{
-width:100%;
-padding:15px;
-margin-top:10px;
-font-size:16px;
-border:none;
-border-radius:10px;
-background:#6a2ca0;
-color:white;
-cursor:pointer;
+  width:100%;
+  padding:15px;
+  margin-top:10px;
+  font-size:16px;
+  border:none;
+  border-radius:10px;
+  background:#6a2ca0;
+  color:white;
+  cursor:pointer;
 }
 
 button:hover{
-background:#4d1f75;
+  background:#4d1f75;
 }
 
-/* ΩΡΑΡΙΟ */
-.hours-card{
-margin-top:15px;
-padding:15px;
-background:#faf7ff;
-border-radius:12px;
-border:1px solid #e2d6f3;
+/* STATUS */
+.status{
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  font-weight:bold;
+  font-size:17px;
 }
 
-.hours-title{
-font-weight:bold;
-font-size:18px;
-color:#4d1f75;
-margin-bottom:10px;
-}
-
-.hours-row{
-display:flex;
-justify-content:space-between;
-padding:4px 0;
-font-size:15px;
-}
-
-.hours-day{
-color:#4d1f75;
-font-weight:bold;
-}
-
-.hours-time{
-color:#222;
+.open{
+  background:#e7f7ee;
+  color:#0a7a33;
 }
 
 .closed{
-color:#b00020;
-font-weight:bold;
+  background:#fde8e8;
+  color:#b00020;
 }
 
+.status small{
+  display:block;
+  margin-top:6px;
+  font-weight:600;
+  font-size:14px;
+  opacity:0.95;
+}
+
+/* HOURS */
+.hours-card{
+  margin-top:15px;
+  padding:15px;
+  background:#faf7ff;
+  border-radius:12px;
+  border:1px solid #e2d6f3;
+  text-align:left;
+}
+
+.hours-title{
+  font-weight:bold;
+  font-size:18px;
+  color:#4d1f75;
+  margin-bottom:10px;
+  text-align:center;
+}
+
+.hours-line{
+  padding:6px 0;
+  font-size:15px;
+  color:#333;
+}
 </style>
 
 </head>
@@ -99,62 +112,32 @@ font-weight:bold;
 <img src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png">
 
 <button onclick="saveContact()">📇 Αποθήκευση επαφής</button>
-
 <button onclick="openMap()">📍 Άνοιγμα χάρτη</button>
-
 <button onclick="callPhone()">📞 Κλήση</button>
 
+<div id="status" class="status"></div>
 
-<!-- ΩΡΑΡΙΟ -->
 <div class="hours-card">
+  <div class="hours-title">🕒 Ωράριο λειτουργίας</div>
 
-<div class="hours-title">🕒 Ωράριο λειτουργίας</div>
+  <div class="hours-line">
+    Δευτέρα / Τετάρτη / Σάββατο : 10:00 – 15:00
+  </div>
 
-<div class="hours-row">
-<span class="hours-day">Δευτέρα</span>
-<span class="hours-time">10:00 – 15:00</span>
-</div>
+  <div class="hours-line">
+    Τρίτη / Πέμπτη / Παρασκευή : 10:00 – 14:00 & 17:00 – 20:30
+  </div>
 
-<div class="hours-row">
-<span class="hours-day">Τρίτη</span>
-<span class="hours-time">10:00 – 14:00 & 17:00 – 20:30</span>
-</div>
-
-<div class="hours-row">
-<span class="hours-day">Τετάρτη</span>
-<span class="hours-time">10:00 – 15:00</span>
-</div>
-
-<div class="hours-row">
-<span class="hours-day">Πέμπτη</span>
-<span class="hours-time">10:00 – 14:00 & 17:00 – 20:30</span>
-</div>
-
-<div class="hours-row">
-<span class="hours-day">Παρασκευή</span>
-<span class="hours-time">10:00 – 14:00 & 17:00 – 20:30</span>
-</div>
-
-<div class="hours-row">
-<span class="hours-day">Σάββατο</span>
-<span class="hours-time">10:00 – 15:00</span>
-</div>
-
-<div class="hours-row">
-<span class="hours-day">Κυριακή</span>
-<span class="hours-time closed">ΚΛΕΙΣΤΑ</span>
+  <div class="hours-line">
+    Κυριακή : ΚΛΕΙΣΤΑ
+  </div>
 </div>
 
 </div>
-
-</div>
-
 
 <script>
-
 function saveContact(){
-
-const vcard =
+  const vcard =
 `BEGIN:VCARD
 VERSION:3.0
 FN:XRYSO XERI
@@ -163,27 +146,132 @@ TEL:2106899772
 ADR:;;Αγίου Γεωργίου 19, Χαλάνδρι;;;;
 END:VCARD`;
 
-const blob = new Blob([vcard], {type: "text/vcard"});
-const link = document.createElement("a");
-
-link.href = URL.createObjectURL(blob);
-link.download = "XRYSO_XERI.vcf";
-link.click();
+  const blob = new Blob([vcard], {type: "text/vcard"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "XRYSO_XERI.vcf";
+  link.click();
 }
 
 function openMap(){
-
-window.open(
-"https://www.google.com/maps/search/?api=1&query=Αγίου+Γεωργίου+19,+Χαλάνδρι"
-);
-
+  window.open("https://www.google.com/maps/search/?api=1&query=Αγίου+Γεωργίου+19,+Χαλάνδρι");
 }
 
 function callPhone(){
-
-window.open("tel:2106899772");
-
+  window.open("tel:2106899772");
 }
+
+/* ---------- ΩΡΑΡΙΟ / STATUS LOGIC ---------- */
+
+const dayNames = ["Κυριακή","Δευτέρα","Τρίτη","Τετάρτη","Πέμπτη","Παρασκευή","Σάββατο"];
+
+function toMinutes(h, m){ return h*60 + m; }
+
+function fmtTime(mins){
+  const h = Math.floor(mins/60);
+  const m = mins % 60;
+  return String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0");
+}
+
+function fmtCountdown(deltaMins){
+  const mins = Math.max(0, Math.round(deltaMins));
+  const h = Math.floor(mins/60);
+  const m = mins % 60;
+
+  if(h <= 0) return `σε ${m} λεπτά`;
+  if(m === 0) return `σε ${h} ώρες`;
+  return `σε ${h} ώρες και ${m} λεπτά`;
+}
+
+/*
+  intervals per day (0=Κυριακή..6=Σάββατο) in minutes: [ [start,end], ... ]
+*/
+function getIntervalsForDay(d){
+  // Δευτέρα/Τετάρτη/Σάββατο
+  if(d === 1 || d === 3 || d === 6){
+    return [[toMinutes(10,0), toMinutes(15,0)]];
+  }
+  // Τρίτη/Πέμπτη/Παρασκευή
+  if(d === 2 || d === 4 || d === 5){
+    return [
+      [toMinutes(10,0), toMinutes(14,0)],
+      [toMinutes(17,0), toMinutes(20,30)]
+    ];
+  }
+  // Κυριακή
+  return [];
+}
+
+function findStatus(now){
+  const d = now.getDay();
+  const cur = toMinutes(now.getHours(), now.getMinutes());
+  const intervals = getIntervalsForDay(d);
+
+  // OPEN?
+  for(const [start,end] of intervals){
+    if(cur >= start && cur < end){
+      const left = end - cur;
+      return {
+        isOpen: true,
+        message: "🟢 Ανοιχτό τώρα",
+        sub: `Κλείνει στις ${fmtTime(end)} (${fmtCountdown(left)})`
+      };
+    }
+  }
+
+  // CLOSED but opens later today?
+  for(const [start,end] of intervals){
+    if(cur < start){
+      const until = start - cur;
+      return {
+        isOpen: false,
+        message: "🔴 Κλειστό τώρα",
+        sub: `Ανοίγει στις ${fmtTime(start)} (${fmtCountdown(until)})`
+      };
+    }
+  }
+
+  // Find next opening within next 7 days
+  for(let add=1; add<=7; add++){
+    const nd = (d + add) % 7;
+    const nextIntervals = getIntervalsForDay(nd);
+    if(nextIntervals.length){
+      const nextStart = nextIntervals[0][0];
+
+      // compute minutes until next start (across days)
+      const minutesLeftToday = (24*60 - cur);
+      const until = minutesLeftToday + (add-1)*24*60 + nextStart;
+
+      if(add === 1){
+        return {
+          isOpen: false,
+          message: "🔴 Κλειστό τώρα",
+          sub: `Ανοίγει αύριο (${dayNames[nd]}) στις ${fmtTime(nextStart)} (${fmtCountdown(until)})`
+        };
+      }
+
+      return {
+        isOpen: false,
+        message: "🔴 Κλειστό τώρα",
+        sub: `Επόμενο άνοιγμα: ${dayNames[nd]} στις ${fmtTime(nextStart)} (${fmtCountdown(until)})`
+      };
+    }
+  }
+
+  return { isOpen:false, message:"🔴 Κλειστό τώρα", sub:"" };
+}
+
+function renderStatus(){
+  const statusEl = document.getElementById("status");
+  const s = findStatus(new Date());
+
+  statusEl.className = "status " + (s.isOpen ? "open" : "closed");
+  statusEl.innerHTML = s.message + (s.sub ? `<small>${s.sub}</small>` : "");
+}
+
+renderStatus();
+// update every 30 seconds for nicer countdown
+setInterval(renderStatus, 30000);
 
 </script>
 
