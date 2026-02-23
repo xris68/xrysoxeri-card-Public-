@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XRYSO XERI</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="apple-mobile-web-app-title" content="XRYSO XERI">
-  <meta property="og:title" content="XRYSO XERI">
-  <meta property="og:site_name" content="XRYSO XERI">
-</head>
+<title>XRYSO XERI</title>
+
+<meta name="apple-mobile-web-app-title" content="XRYSO XERI">
+<meta property="og:title" content="XRYSO XERI">
+<meta property="og:site_name" content="XRYSO XERI">
+
 <style>
+
 body{
 font-family: Arial;
 background:#f4f0fa;
@@ -46,7 +48,46 @@ cursor:pointer;
 button:hover{
 background:#4d1f75;
 }
+
+/* ΩΡΑΡΙΟ */
+.hours-card{
+margin-top:15px;
+padding:15px;
+background:#faf7ff;
+border-radius:12px;
+border:1px solid #e2d6f3;
+}
+
+.hours-title{
+font-weight:bold;
+font-size:18px;
+color:#4d1f75;
+margin-bottom:10px;
+}
+
+.hours-row{
+display:flex;
+justify-content:space-between;
+padding:4px 0;
+font-size:15px;
+}
+
+.hours-day{
+color:#4d1f75;
+font-weight:bold;
+}
+
+.hours-time{
+color:#222;
+}
+
+.closed{
+color:#b00020;
+font-weight:bold;
+}
+
 </style>
+
 </head>
 
 <body>
@@ -55,7 +96,7 @@ background:#4d1f75;
 
 <h2>XRYSO XERI</h2>
 
-<img src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png" style="width:100%; border-radius:10px;">
+<img src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png">
 
 <button onclick="saveContact()">📇 Αποθήκευση επαφής</button>
 
@@ -63,7 +104,51 @@ background:#4d1f75;
 
 <button onclick="callPhone()">📞 Κλήση</button>
 
+
+<!-- ΩΡΑΡΙΟ -->
+<div class="hours-card">
+
+<div class="hours-title">🕒 Ωράριο λειτουργίας</div>
+
+<div class="hours-row">
+<span class="hours-day">Δευτέρα</span>
+<span class="hours-time">10:00 – 15:00</span>
 </div>
+
+<div class="hours-row">
+<span class="hours-day">Τρίτη</span>
+<span class="hours-time">10:00 – 14:00 & 17:00 – 20:30</span>
+</div>
+
+<div class="hours-row">
+<span class="hours-day">Τετάρτη</span>
+<span class="hours-time">10:00 – 15:00</span>
+</div>
+
+<div class="hours-row">
+<span class="hours-day">Πέμπτη</span>
+<span class="hours-time">10:00 – 14:00 & 17:00 – 20:30</span>
+</div>
+
+<div class="hours-row">
+<span class="hours-day">Παρασκευή</span>
+<span class="hours-time">10:00 – 14:00 & 17:00 – 20:30</span>
+</div>
+
+<div class="hours-row">
+<span class="hours-day">Σάββατο</span>
+<span class="hours-time">10:00 – 15:00</span>
+</div>
+
+<div class="hours-row">
+<span class="hours-day">Κυριακή</span>
+<span class="hours-time closed">ΚΛΕΙΣΤΑ</span>
+</div>
+
+</div>
+
+</div>
+
 
 <script>
 
@@ -91,17 +176,16 @@ function openMap(){
 window.open(
 "https://www.google.com/maps/search/?api=1&query=Αγίου+Γεωργίου+19,+Χαλάνδρι"
 );
+
 }
 
 function callPhone(){
 
 window.open("tel:2106899772");
+
 }
 
 </script>
 
 </body>
 </html>
-
-
-
