@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>XRYSO XERI</title>
 
   <meta name="apple-mobile-web-app-title" content="XRYSO XERI">
@@ -11,113 +10,272 @@
   <meta property="og:site_name" content="XRYSO XERI">
 
   <style>
+    :root{
+      --bg:#f5f3ff;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:rgba(109,40,217,.18);
+
+      --brand:#6a2ca0;
+      --brand2:#4d1f75;
+
+      --good:#16a34a;
+      --openbg:#e7f7ee;
+      --openfg:#0a7a33;
+      --closebg:#fde8e8;
+      --closefg:#b00020;
+
+      --shadow: 0 12px 28px rgba(2,6,23,.10);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
     body{
-      font-family: Arial, sans-serif;
-      background:#f4f0fa;
-      text-align:center;
-      padding:20px;
       margin:0;
+      font-family: Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(106,44,160,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(77,31,117,.14), transparent 55%),
+        var(--bg);
+      padding:18px 14px 92px; /* extra bottom for sticky bar */
+      text-align:center;
     }
 
-    .card{
-      max-width:400px;
-      margin:auto;
-      background:white;
-      padding:20px;
-      border-radius:15px;
-      box-shadow:0 0 15px rgba(0,0,0,0.2);
-    }
-
-    img{
-      width:100%;
-      border-radius:10px;
-      display:block;
+    .wrap{
+      max-width: 460px;
       margin: 0 auto;
     }
 
-    button{
+    .card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      padding:16px;
+      background: linear-gradient(135deg, rgba(106,44,160,.14), rgba(167,139,250,.10));
+      border-bottom:1px solid var(--line);
+      text-align:left;
+    }
+
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 220px;
+    }
+
+    .mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), #a78bfa);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.5px;
+      box-shadow: 0 10px 18px rgba(106,44,160,.22);
+      user-select:none;
+    }
+
+    h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:.2px;
+    }
+
+    .sub{
+      margin:2px 0 0;
+      font-size:12.8px;
+      color:var(--muted);
+      line-height:1.35;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.75);
+      border:1px solid var(--line);
+      color:#3b0764;
+      font-size:12.8px;
+      white-space:nowrap;
+    }
+
+    .headline{
+      margin:14px 0 6px;
+      font-size:24px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+
+    .lead{
+      margin:0;
+      color:#334155;
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .tags{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      font-size:12.5px;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      color:#1f2937;
+    }
+
+    /* ---------- IMAGE ---------- */
+    .imgWrap{
+      padding:12px 16px 0;
+    }
+    img{
       width:100%;
-      padding:15px;
-      margin-top:10px;
+      border-radius:14px;
+      display:block;
+      margin:0 auto;
+      border:1px solid rgba(2,6,23,.06);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .section{
+      padding:14px 16px;
+      text-align:left;
+    }
+
+    .sectionTitle{
+      margin:0 0 10px;
+      font-weight:800;
+      color:#3b0764;
       font-size:16px;
-      border:none;
-      border-radius:10px;
-      background:#6a2ca0;
-      color:white;
-      cursor:pointer;
+      text-align:left;
     }
 
-    button:hover{
-      background:#4d1f75;
+    .grid3{
+      display:grid;
+      gap:10px;
+      grid-template-columns: 1fr;
     }
 
-    /* STATUS */
-    .status{
-      margin-top:15px;
+    .tile{
+      background: rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius: 16px;
       padding:12px;
+      box-shadow: 0 10px 18px rgba(2,6,23,.05);
+    }
+
+    .tile b{
+      display:block;
+      font-size:14px;
+      margin-bottom:4px;
+    }
+    .tile span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width:420px){
+      .services{ grid-template-columns:1fr; }
+    }
+    .service{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      background: rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding:12px;
+    }
+    .dot{
+      width:26px;
+      height:26px;
       border-radius:10px;
+      background: rgba(106,44,160,.10);
+      border:1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color: var(--brand);
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    .service b{ display:block; font-size:13.5px; }
+    .service small{ display:block; margin-top:2px; color:var(--muted); font-size:12.6px; line-height:1.35; }
+
+    /* ---------- STATUS ---------- */
+    .status{
+      margin: 0 16px 0;
+      padding:12px;
+      border-radius:14px;
       font-weight:bold;
-      font-size:17px;
+      font-size:16px;
+      border:1px solid rgba(2,6,23,.06);
+      text-align:center;
     }
-
-    .open{
-      background:#e7f7ee;
-      color:#0a7a33;
-    }
-
-    .closed{
-      background:#fde8e8;
-      color:#b00020;
-    }
-
+    .open{ background:var(--openbg); color:var(--openfg); }
+    .closed{ background:var(--closebg); color:var(--closefg); }
     .status small{
       display:block;
       margin-top:6px;
       font-weight:600;
-      font-size:14px;
+      font-size:13px;
       opacity:0.95;
     }
 
-    /* HOURS */
+    /* ---------- HOURS ---------- */
     .hours-card{
-      margin-top:15px;
-      padding:15px;
+      margin-top:10px;
+      padding:14px;
       background:#faf7ff;
-      border-radius:12px;
+      border-radius:16px;
       border:1px solid #e2d6f3;
       text-align:left;
     }
-
-    .hours-title{
-      font-weight:bold;
-      font-size:18px;
-      color:#4d1f75;
-      margin-bottom:10px;
-      text-align:center;
-    }
-
     .hours-line{
-      padding:6px 0;
-      font-size:15px;
-      color:#333;
+      padding:7px 0;
+      font-size:14px;
+      color:#1f2937;
+      line-height:1.35;
     }
 
-    /* Reviews block */
+    /* ---------- REVIEWS ---------- */
     .reviews-card{
-      margin-top:15px;
-      padding:15px;
+      margin-top:10px;
+      padding:14px;
       background:#fff;
-      border-radius:12px;
-      border:1px solid #eee;
+      border-radius:16px;
+      border:1px solid rgba(2,6,23,.08);
       text-align:left;
-    }
-
-    .reviews-title{
-      font-weight:bold;
-      font-size:18px;
-      color:#4d1f75;
-      margin-bottom:10px;
-      text-align:center;
     }
 
     .link-btn{
@@ -125,87 +283,217 @@
       width:100%;
       box-sizing:border-box;
       padding:14px 16px;
-      border-radius:10px;
+      border-radius:14px;
       text-decoration:none;
-      font-weight:bold;
-      font-size:16px;
+      font-weight:800;
+      font-size:15px;
       color:#fff;
-      background:#6a2ca0;
+      background: var(--brand);
       text-align:center;
+      border: none;
     }
+    .link-btn:hover{ background: var(--brand2); }
 
-    .link-btn:hover{
-      background:#4d1f75;
-    }
+    .link-btn.green{ background: var(--good); }
+    .link-btn.green:hover{ filter: brightness(0.95); }
 
     .muted{
       margin-top:10px;
-      font-size:13px;
-      color:#555;
-      line-height:1.35;
+      font-size:12.8px;
+      color:#475569;
+      line-height:1.45;
     }
+
+    /* ---------- STICKY CTA BAR ---------- */
+    .ctaBar{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      background: rgba(255,255,255,.88);
+      border-top:1px solid var(--line);
+      backdrop-filter: blur(10px);
+      padding:10px 12px;
+      z-index:999;
+    }
+    .ctaWrap{
+      max-width:460px;
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+    }
+    .btn{
+      flex:1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 10px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      text-decoration:none;
+      font-weight:900;
+      font-size:14px;
+      box-shadow: 0 10px 18px rgba(2,6,23,.05);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand), #a78bfa);
+      color:white;
+      border:none;
+    }
+    .btn.secondary{
+      background:#fff;
+      color: var(--brand);
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .footer{
+      padding: 6px 16px 16px;
+      color:var(--muted);
+      font-size:12.5px;
+      text-align:center;
+    }
+
+    /* Hide old top buttons (we now use sticky bar) */
+    .topButtons{ display:none; }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="card">
 
-<div class="card">
-  <h2>XRYSO XERI</h2>
+      <!-- HERO -->
+      <div class="hero">
+        <div class="brandRow">
+          <div class="logo">
+            <div class="mark">XX</div>
+            <div>
+              <h1>XRYSO XERI</h1>
+              <div class="sub">Επιδιορθώσεις & Μεταποιήσεις Ρούχων</div>
+            </div>
+          </div>
+          <div class="pill">Από το <b>2004</b> • Fast Repair • Ζεστή εξυπηρέτηση</div>
+        </div>
 
-  <img
-    alt="XRYSO XERI - Επαγγελματική κάρτα"
-    src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png"
-  >
+        <div class="headline">Γρήγορα. Ποιοτικά. Σε τίμιες τιμές.</div>
+        <p class="lead">
+          Στο XRYSO XERI συνδυάζουμε εμπειρία, λεπτομέρεια και σύγχρονη εξυπηρέτηση.
+          Σε ακούμε, προτείνουμε λύση και φροντίζουμε το ρούχο σαν να είναι δικό μας.
+        </p>
 
-  <button type="button" onclick="saveContact()">📇 Αποθήκευση επαφής</button>
-  <button type="button" onclick="openMap()">📍 Άνοιγμα χάρτη</button>
-  <button type="button" onclick="callPhone()">📞 Κλήση</button>
+        <div class="tags">
+          <div class="tag">✂️ Άψογη εφαρμογή</div>
+          <div class="tag">⚡ Γρήγορη παράδοση</div>
+          <div class="tag">💸 Καλές τιμές</div>
+          <div class="tag">💜 Ανθρώπινη προσέγγιση</div>
+        </div>
+      </div>
 
-  <div id="status" class="status"></div>
+      <!-- IMAGE -->
+      <div class="imgWrap">
+        <img
+          alt="XRYSO XERI - Επαγγελματική κάρτα"
+          src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png"
+        >
+      </div>
 
-  <div class="hours-card">
-    <div class="hours-title">🕒 Ωράριο λειτουργίας</div>
+      <!-- (kept for compatibility but hidden) -->
+      <div class="topButtons">
+        <button type="button" onclick="saveContact()">📇 Αποθήκευση επαφής</button>
+        <button type="button" onclick="openMap()">📍 Άνοιγμα χάρτη</button>
+        <button type="button" onclick="callPhone()">📞 Κλήση</button>
+      </div>
 
-    <div class="hours-line">
-      Δευτέρα / Τετάρτη / Σάββατο : 10:00 – 15:00
-    </div>
+      <!-- STATUS -->
+      <div style="height:12px"></div>
+      <div id="status" class="status"></div>
 
-    <div class="hours-line">
-      Τρίτη / Πέμπτη / Παρασκευή : 10:00 – 14:00 & 17:00 – 20:30
-    </div>
+      <!-- WHY US -->
+      <div class="section">
+        <div class="sectionTitle">Γιατί XRYSO XERI</div>
+        <div class="grid3">
+          <div class="tile">
+            <b>⚡ Fast Repair</b>
+            <span>Οργάνωση και ξεκάθαρη παράδοση — χωρίς ταλαιπωρία.</span>
+          </div>
+          <div class="tile">
+            <b>🧵 Ποιότητα</b>
+            <span>Ραφές & τελειώματα που “κρατάνε” και φαίνονται σωστά.</span>
+          </div>
+          <div class="tile">
+            <b>💜 Ανθρώπινη σχέση</b>
+            <span>Εξυπηρέτηση με χαμόγελο — όχι απρόσωπο “άσε το και φύγε”.</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="hours-line">
-      Κυριακή : ΚΛΕΙΣΤΑ
+      <!-- SERVICES -->
+      <div class="section" style="padding-top:0;">
+        <div class="sectionTitle">Τι αναλαμβάνουμε</div>
+        <div class="services">
+          <div class="service"><div class="dot">1</div><div><b>Μήκη & στριφώματα</b><small>Παντελόνια, φούστες, φορέματα</small></div></div>
+          <div class="service"><div class="dot">2</div><div><b>Στενέματα / Φαρδύνματα</b><small>Για σωστή εφαρμογή</small></div></div>
+          <div class="service"><div class="dot">3</div><div><b>Φερμουάρ / κουμπιά</b><small>Αντικατάσταση & επισκευή</small></div></div>
+          <div class="service"><div class="dot">4</div><div><b>Σακάκια & παλτό</b><small>Μεταποιήσεις και διορθώσεις</small></div></div>
+          <div class="service"><div class="dot">5</div><div><b>Ειδικές μεταποιήσεις</b><small>Όταν χρειάζεται “μάτι” και εμπειρία</small></div></div>
+          <div class="service"><div class="dot">6</div><div><b>Γενικές επιδιορθώσεις</b><small>Για κάθε τύπο ενδύματος</small></div></div>
+        </div>
+
+        <div class="muted" style="margin-top:10px;">
+          * Αν δεν είσαι σίγουρος/η τι χρειάζεται, έλα από το κατάστημα ή κάλεσέ μας — θα σε καθοδηγήσουμε.
+        </div>
+      </div>
+
+      <!-- HOURS -->
+      <div class="section" style="padding-top:0;">
+        <div class="hours-card">
+          <div class="sectionTitle" style="margin-bottom:8px; text-align:center;">🕒 Ωράριο λειτουργίας</div>
+          <div class="hours-line">Δευτέρα / Τετάρτη / Σάββατο : <b>10:00 – 15:00</b></div>
+          <div class="hours-line">Τρίτη / Πέμπτη / Παρασκευή : <b>10:00 – 14:00</b> & <b>17:00 – 20:30</b></div>
+          <div class="hours-line">Κυριακή : <b>ΚΛΕΙΣΤΑ</b></div>
+        </div>
+      </div>
+
+      <!-- GOOGLE REVIEWS -->
+      <div class="section" style="padding-top:0;">
+        <div class="reviews-card">
+          <div class="sectionTitle" style="text-align:center;">⭐ Αξιολογήσεις στο Google</div>
+
+          <!-- Elfsight Google Reviews -->
+          <script src="https://elfsightcdn.com/platform.js" async></script>
+          <div class="elfsight-app-710d7417-bc4d-473e-92b0-094494fb50c5" data-elfsight-app-lazy></div>
+
+          <div style="height:12px"></div>
+
+          <a class="link-btn" href="https://share.google/72KnGPy00uF2nUknb" target="_blank" rel="noopener">
+            ⭐ Δείτε τις αξιολογήσεις μας στο Google
+          </a>
+
+          <div style="height:10px"></div>
+          <a class="link-btn green" href="https://g.page/r/CUEZy_SlLi0WEBM/review" target="_blank" rel="noopener">
+            ✍️ Αφήστε αξιολόγηση στο Google
+          </a>
+
+          <div class="muted">
+            Μια αξιολόγηση βοηθάει πολύ μια μικρή τοπική επιχείρηση σαν τη δική μας. Ευχαριστούμε! 💜
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        XRYSO XERI • Από το 2004 • Γρήγορη εξυπηρέτηση με ποιότητα & ανθρώπινη προσέγγιση
+      </div>
+
     </div>
   </div>
 
-  <!-- GOOGLE REVIEWS -->
-  <div class="reviews-card">
-    <div class="reviews-title">⭐ Αξιολογήσεις στο Google</div>
-
-    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-710d7417-bc4d-473e-92b0-094494fb50c5" data-elfsight-app-lazy></div>
-
-    <div style="height:12px"></div>
-
-    <!-- Κουμπί που ανοίγει το προφίλ/αξιολογήσεις στο Google -->
-    <a class="link-btn" href="https://share.google/72KnGPy00uF2nUknb" target="_blank" rel="noopener">
-      ⭐ Δείτε τις αξιολογήσεις μας στο Google
-    </a>
-
-    <!-- Κουμπί για να αφήνουν αξιολόγηση (ανοίγει κατευθείαν το review box) -->
-    <div style="height:10px"></div>
-    <a class="link-btn" href="https://g.page/r/CUEZy_SlLi0WEBM/review" target="_blank" rel="noopener" style="background:#16a34a;">
-      ✍️ Αφήστε αξιολόγηση στο Google
-    </a>
-
-    <div class="muted">
-      
+  <!-- Sticky CTA bar -->
+  <div class="ctaBar" role="navigation" aria-label="Γρήγορες ενέργειες">
+    <div class="ctaWrap">
+      <a class="btn primary" href="tel:2106899772">📞 Κλήση</a>
+      <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=%CE%91%CE%B3%CE%AF%CE%BF%CF%85+%CE%93%CE%B5%CF%89%CF%81%CE%B3%CE%AF%CE%BF%CF%85+19,+%CE%A7%CE%B1%CE%BB%CE%AC%CE%BD%CE%B4%CF%81%CE%B9" target="_blank" rel="noopener">📍 Χάρτης</a>
+      <a class="btn secondary" href="#" onclick="saveContact(); return false;">💾 Επαφή</a>
     </div>
   </div>
-
-</div>
 
 <script>
   function saveContact(){
@@ -237,43 +525,33 @@ END:VCARD`;
   }
 
   /* ---------- ΩΡΑΡΙΟ / STATUS LOGIC ---------- */
-
   const dayNames = ["Κυριακή","Δευτέρα","Τρίτη","Τετάρτη","Πέμπτη","Παρασκευή","Σάββατο"];
 
   function toMinutes(h, m){ return h*60 + m; }
-
   function fmtTime(mins){
     const h = Math.floor(mins/60);
     const m = mins % 60;
     return String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0");
   }
-
   function fmtCountdown(deltaMins){
     const mins = Math.max(0, Math.round(deltaMins));
     const h = Math.floor(mins/60);
     const m = mins % 60;
-
     if(h <= 0) return `σε ${m} λεπτά`;
     if(m === 0) return `σε ${h} ώρες`;
     return `σε ${h} ώρες και ${m} λεπτά`;
   }
 
-  /*
-    intervals per day (0=Κυριακή..6=Σάββατο) in minutes: [ [start,end], ... ]
-  */
   function getIntervalsForDay(d){
-    // Δευτέρα/Τετάρτη/Σάββατο
     if(d === 1 || d === 3 || d === 6){
       return [[toMinutes(10,0), toMinutes(15,0)]];
     }
-    // Τρίτη/Πέμπτη/Παρασκευή
     if(d === 2 || d === 4 || d === 5){
       return [
         [toMinutes(10,0), toMinutes(14,0)],
         [toMinutes(17,0), toMinutes(20,30)]
       ];
     }
-    // Κυριακή
     return [];
   }
 
@@ -282,54 +560,32 @@ END:VCARD`;
     const cur = toMinutes(now.getHours(), now.getMinutes());
     const intervals = getIntervalsForDay(d);
 
-    // OPEN?
     for(const [start,end] of intervals){
       if(cur >= start && cur < end){
         const left = end - cur;
-        return {
-          isOpen: true,
-          message: "🟢 Ανοιχτό τώρα",
-          sub: `Κλείνει στις ${fmtTime(end)} (${fmtCountdown(left)})`
-        };
+        return { isOpen: true, message: "🟢 Ανοιχτό τώρα", sub: `Κλείνει στις ${fmtTime(end)} (${fmtCountdown(left)})` };
       }
     }
 
-    // CLOSED but opens later today?
     for(const [start,end] of intervals){
       if(cur < start){
         const until = start - cur;
-        return {
-          isOpen: false,
-          message: "🔴 Κλειστό τώρα",
-          sub: `Ανοίγει στις ${fmtTime(start)} (${fmtCountdown(until)})`
-        };
+        return { isOpen: false, message: "🔴 Κλειστό τώρα", sub: `Ανοίγει στις ${fmtTime(start)} (${fmtCountdown(until)})` };
       }
     }
 
-    // Find next opening within next 7 days
     for(let add=1; add<=7; add++){
       const nd = (d + add) % 7;
       const nextIntervals = getIntervalsForDay(nd);
       if(nextIntervals.length){
         const nextStart = nextIntervals[0][0];
-
-        // compute minutes until next start (across days)
         const minutesLeftToday = (24*60 - cur);
         const until = minutesLeftToday + (add-1)*24*60 + nextStart;
 
         if(add === 1){
-          return {
-            isOpen: false,
-            message: "🔴 Κλειστό τώρα",
-            sub: `Ανοίγει αύριο (${dayNames[nd]}) στις ${fmtTime(nextStart)} (${fmtCountdown(until)})`
-          };
+          return { isOpen: false, message: "🔴 Κλειστό τώρα", sub: `Ανοίγει αύριο (${dayNames[nd]}) στις ${fmtTime(nextStart)} (${fmtCountdown(until)})` };
         }
-
-        return {
-          isOpen: false,
-          message: "🔴 Κλειστό τώρα",
-          sub: `Επόμενο άνοιγμα: ${dayNames[nd]} στις ${fmtTime(nextStart)} (${fmtCountdown(until)})`
-        };
+        return { isOpen: false, message: "🔴 Κλειστό τώρα", sub: `Επόμενο άνοιγμα: ${dayNames[nd]} στις ${fmtTime(nextStart)} (${fmtCountdown(until)})` };
       }
     }
 
@@ -339,16 +595,13 @@ END:VCARD`;
   function renderStatus(){
     const statusEl = document.getElementById("status");
     const s = findStatus(new Date());
-
     statusEl.className = "status " + (s.isOpen ? "open" : "closed");
     statusEl.innerHTML = s.message + (s.sub ? `<small>${s.sub}</small>` : "");
   }
 
   renderStatus();
-  // update every 30 seconds for nicer countdown
   setInterval(renderStatus, 30000);
 </script>
 
 </body>
 </html>
-
