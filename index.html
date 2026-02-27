@@ -80,19 +80,29 @@
     }
 
     .mark{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      background: linear-gradient(135deg, var(--brand), #a78bfa);
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-weight:800;
-      letter-spacing:.5px;
-      box-shadow: 0 10px 18px rgba(106,44,160,.22);
-      user-select:none;
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      background:transparent;
+      box-shadow: 0 12px 30px rgba(106,44,160,.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .mark img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:50%;
+    }
+    .mark:hover{
+      transform: scale(1.05);
+      box-shadow: 0 16px 35px rgba(106,44,160,.35);
+    }
+    
     h1{
       margin:0;
       font-size:20px;
@@ -365,8 +375,9 @@
       <div class="hero">
         <div class="brandRow">
           <div class="logo">
-            <div class="mark">XX</div>
-            <div>
+            <div class="mark">
+              <img src="logo.png" alt="XRYSO XERI Logo">
+            </div>
               <h1>XRYSO XERI</h1>
               <div class="sub">Επιδιορθώσεις & Μεταποιήσεις Ρούχων</div>
             </div>
@@ -607,5 +618,6 @@ END:VCARD`;
 
 </body>
 </html>
+
 
 
