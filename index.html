@@ -364,7 +364,25 @@
       font-size:12.5px;
       text-align:center;
     }
+   
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
 
+    .gallery img{
+      width:100%;
+      border-radius:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+    
     /* Hide old top buttons (we now use sticky bar) */
     .topButtons{ display:none; }
   </style>
@@ -409,7 +427,16 @@
           src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png"
         >
       </div>
+      
+      <div class="section">
+        <div class="sectionTitle">Δείγματα δουλειάς</div>
 
+        <div class="gallery">
+          <img src="photo1.jpg" alt="Δείγμα εργασίας 1">
+          <img src="photo2.jpg" alt="Δείγμα εργασίας 2">
+        </div>
+      </div>
+    
       <!-- (kept for compatibility but hidden) -->
       <div class="topButtons">
         <button type="button" onclick="saveContact()">📇 Αποθήκευση επαφής</button>
@@ -621,6 +648,7 @@ END:VCARD`;
 
 </body>
 </html>
+
 
 
 
