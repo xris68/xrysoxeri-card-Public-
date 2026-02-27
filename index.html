@@ -44,8 +44,18 @@
     }
 
     .wrap{
-      max-width: 460px;
+      max-width: 980px;
       margin: 0 auto;
+    }
+    .card{
+      max-width: 520px;   /* κρατάει ωραίο “card” look */
+      margin: 0 auto;
+    }
+    @media (min-width: 900px){
+      .card{ max-width: 920px; }
+      .hero{ padding:22px; }
+      .imgWrap{ padding:16px 22px 0; }
+      .section{ padding:18px 22px; }
     }
 
     .card{
@@ -81,15 +91,11 @@
 
     .mark{
       width:72px;
-      height:72px;
+      aspect-ratio: 1 / 1;     /* κλειδώνει τετράγωνο */
       border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
       overflow:hidden;
-      background:transparent;
+      flex: 0 0 auto;          /* να μη συμπιέζεται */
       box-shadow: 0 12px 30px rgba(106,44,160,.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .mark img{
@@ -97,7 +103,7 @@
       height:100%;
       object-fit:cover;
       border-radius:50%;
-      transform: scale(1.35);
+      display:block;
     }
     .mark:hover{
       transform: scale(1.05);
@@ -129,7 +135,11 @@
       border:1px solid var(--line);
       color:#3b0764;
       font-size:12.8px;
-      white-space:nowrap;
+
+      white-space: normal;     /* ✅ να σπάει γραμμή */
+      flex-wrap: wrap;         /* ✅ */
+      max-width: 100%;         /* ✅ να μην “κόβεται” */
+      line-height: 1.25;
     }
 
     .headline{
@@ -648,6 +658,7 @@ END:VCARD`;
 
 </body>
 </html>
+
 
 
 
