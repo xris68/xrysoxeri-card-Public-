@@ -89,6 +89,13 @@
       min-width: 220px;
     }
 
+    /* ΝΕΟ: κείμενα brand σε στήλη */
+    .brandText{
+      display:flex;
+      flex-direction:column;
+      min-width: 0; /* βοηθάει να μην “σπρώχνει” */
+    }
+
     .mark{
       width:72px;
       aspect-ratio: 1 / 1;     /* κλειδώνει τετράγωνο */
@@ -96,6 +103,7 @@
       overflow:hidden;
       flex: 0 0 auto;          /* να μη συμπιέζεται */
       box-shadow: 0 12px 30px rgba(106,44,160,.25);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
 
     .mark img{
@@ -109,13 +117,13 @@
       transform: scale(1.05);
       box-shadow: 0 16px 35px rgba(106,44,160,.35);
     }
-    
+
     h1{
       margin:0;
       font-size:22px;
       color:var(--brand);
-      white-space:nowrap;
       letter-spacing:1px;
+      white-space:nowrap; /* desktop ok */
     }
 
     .sub{
@@ -169,6 +177,27 @@
       padding:8px 10px;
       border-radius:999px;
       color:#1f2937;
+    }
+
+    /* ✅ MOBILE FIX: το tagline κάτω από XRYSO XERI + να μην κόβεται */
+    @media (max-width: 520px){
+      .brandRow{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .logo{
+        width:100%;
+        align-items:flex-start;
+      }
+      h1{
+        white-space:normal; /* στο κινητό να μπορεί να σπάει αν χρειαστεί */
+      }
+      .sub{
+        font-size:13px;
+      }
+      .pill{
+        width:100%;
+      }
     }
 
     /* ---------- IMAGE ---------- */
@@ -374,7 +403,7 @@
       font-size:12.5px;
       text-align:center;
     }
-   
+
     .gallery{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -392,7 +421,7 @@
     .gallery img:hover{
       transform:scale(1.03);
     }
-    
+
     /* Hide old top buttons (we now use sticky bar) */
     .topButtons{ display:none; }
   </style>
@@ -409,10 +438,13 @@
             <div class="mark">
               <img src="logo.png" alt="XRYSO XERI Logo">
             </div>
+
+            <div class="brandText">
               <h1>XRYSO XERI</h1>
-              <div class="sub">Επιδιορθώσεις & Μεταποιήσεις Ρούχων</div>
+              <div class="sub">Επιδιορθώσεις &amp; Μεταποιήσεις Ρούχων</div>
             </div>
           </div>
+
           <div class="pill">Από το <b>2004</b> • Γρήγορες και σωστές επιδιορθώσεις • Ζεστή εξυπηρέτηση</div>
         </div>
 
@@ -437,7 +469,7 @@
           src="https://raw.githubusercontent.com/xris68/xrysoxeri-card-Public-/main/%CE%B5%CE%B9%CE%BA%CE%BF%CE%BD%CE%B1%20%CE%BC%CF%89%CE%B2%20%CE%BA%CE%B1%CF%81%CF%84%CE%B1%CF%82.png"
         >
       </div>
-      
+
       <div class="section">
         <div class="sectionTitle">Φωτογραφίες</div>
 
@@ -446,7 +478,7 @@
           <img src="photo2.jpg" alt="Δείγμα εργασίας 2">
         </div>
       </div>
-    
+
       <!-- (kept for compatibility but hidden) -->
       <div class="topButtons">
         <button type="button" onclick="saveContact()">📇 Αποθήκευση επαφής</button>
@@ -468,7 +500,7 @@
           </div>
           <div class="tile">
             <b>🧵 Ποιότητα</b>
-            <span> Δεν “μπαλώνουμε” τα ρούχα σας, τα διορθώνουμε σωστά, ώστε να τα χαρείτε. .</span>
+            <span>Δεν “μπαλώνουμε” τα ρούχα σας, τα διορθώνουμε σωστά, ώστε να τα χαρείτε.</span>
           </div>
           <div class="tile">
             <b>💜 Ανθρώπινη σχέση</b>
@@ -481,10 +513,10 @@
       <div class="section" style="padding-top:0;">
         <div class="sectionTitle">Τι αναλαμβάνουμε</div>
         <div class="services">
-          <div class="service"><div class="dot">1</div><div><b>Κοντέματα </b><small>Παντελόνια, φούστες, φορέματα ζακέτες, παλτό, </small></div></div>
+          <div class="service"><div class="dot">1</div><div><b>Κοντέματα</b><small>Παντελόνια, φούστες, φορέματα, ζακέτες, παλτό</small></div></div>
           <div class="service"><div class="dot">2</div><div><b>Στενέματα / Ανοίγματα</b><small>Για τέλεια εφαρμογή στο σώμα σας</small></div></div>
-          <div class="service"><div class="dot">3</div><div><b>Φερμουάρ / κουμπιά</b><small>Αντικατάσταση & επισκευή</small></div></div>
-          <div class="service"><div class="dot">4</div><div><b>Σακάκια & παλτό</b><small>Ανέβασμα ώμων, αλλαγές φόδρας & φθαρμένωνν κομματιών</small></div></div>
+          <div class="service"><div class="dot">3</div><div><b>Φερμουάρ / κουμπιά</b><small>Αντικατάσταση &amp; επισκευή</small></div></div>
+          <div class="service"><div class="dot">4</div><div><b>Σακάκια &amp; παλτό</b><small>Ανέβασμα ώμων, αλλαγές φόδρας &amp; φθαρμένων κομματιών</small></div></div>
           <div class="service"><div class="dot">5</div><div><b>Ειδικές μεταποιήσεις</b><small>Όταν το ρούχο σας χρειάζεται “μάτι” και εμπειρία</small></div></div>
           <div class="service"><div class="dot">6</div><div><b>Γενικές επιδιορθώσεις</b><small>Για κάθε τύπο ενδύματος</small></div></div>
           <div class="service"><div class="dot">7</div><div><b>Κουρτίνες</b><small>Κοντέματα, αλλαγή τρέσας</small></div></div>
@@ -501,7 +533,7 @@
         <div class="hours-card">
           <div class="sectionTitle" style="margin-bottom:8px; text-align:center;">🕒 Ωράριο λειτουργίας</div>
           <div class="hours-line">Δευτέρα / Τετάρτη / Σάββατο : <b>10:00 – 15:00</b></div>
-          <div class="hours-line">Τρίτη / Πέμπτη / Παρασκευή : <b>10:00 – 14:00</b> & <b>17:00 – 20:30</b></div>
+          <div class="hours-line">Τρίτη / Πέμπτη / Παρασκευή : <b>10:00 – 14:00</b> &amp; <b>17:00 – 20:30</b></div>
           <div class="hours-line">Κυριακή : <b>ΚΛΕΙΣΤΑ</b></div>
         </div>
       </div>
@@ -527,13 +559,13 @@
           </a>
 
           <div class="muted">
-            Η εμπιστοσύνη σας από το 2004 είναι η δύναμή μας. Αν θέλετε, μοιραστείτε την εμπειρία σας.. Ευχαριστούμε! 💜
+            Η εμπιστοσύνη σας από το 2004 είναι η δύναμή μας. Αν θέλετε, μοιραστείτε την εμπειρία σας. Ευχαριστούμε! 💜
           </div>
         </div>
       </div>
 
       <div class="footer">
-        XRYSO XERI • Από το 2004 • Γρήγορη εξυπηρέτηση με ποιότητα & ανθρώπινη προσέγγιση
+        XRYSO XERI • Από το 2004 • Γρήγορη εξυπηρέτηση με ποιότητα &amp; ανθρώπινη προσέγγιση
       </div>
 
     </div>
@@ -658,14 +690,3 @@ END:VCARD`;
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
